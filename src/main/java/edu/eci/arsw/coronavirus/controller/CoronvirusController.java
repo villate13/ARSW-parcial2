@@ -30,7 +30,7 @@ public class CoronvirusController {
     CoronavirusServices cServices;
     
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<?> getStatistics(){
+    public ResponseEntity<?> getResult(){
        
         try {
             return new ResponseEntity<>(cServices.getResult(),
@@ -42,7 +42,7 @@ public class CoronvirusController {
     }
     
     @RequestMapping(method = RequestMethod.GET, path = "/{countryName}")
-    public ResponseEntity<?> getWeatherByCityName(@PathVariable("cityName") String countryName) {
+    public ResponseEntity<?> getResultByCountry(@PathVariable("countryName") String countryName) {
         try {
             return new ResponseEntity<>(cServices.getResultByCountry(countryName),
                     HttpStatus.ACCEPTED);
