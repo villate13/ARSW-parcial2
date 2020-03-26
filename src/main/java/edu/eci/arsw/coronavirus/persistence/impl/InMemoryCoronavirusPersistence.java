@@ -43,6 +43,7 @@ public class InMemoryCoronavirusPersistence implements CoronavirusPersistence{
                     .asString();
             System.out.println("Status: "+response.getStatusText());
             System.out.println("Body: "+response.getBody());
+            
             return response.getBody();
             //String url = "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats";
             //return getHttpRequest(url);
