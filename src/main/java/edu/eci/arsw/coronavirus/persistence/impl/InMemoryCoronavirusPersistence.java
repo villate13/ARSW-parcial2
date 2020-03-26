@@ -5,6 +5,10 @@
  */
 package edu.eci.arsw.coronavirus.persistence.impl;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import edu.eci.arsw.coronavirus.persistence.CoronavirusPersistence;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +17,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.stereotype.Service;
+
 
 /**
  *
@@ -22,43 +29,45 @@ import org.springframework.stereotype.Service;
 @Service
 public class InMemoryCoronavirusPersistence implements CoronavirusPersistence{
 
+    private String keyCovid = "1f289489c2msh5ac2675eba7beacp1c2f18jsnd14f28834b31";
+    private String hostCovid = "covid-19-coronavirus-statistics.p.rapidapi.com";
+    
+    
     @Override
     public String getResult() throws MalformedURLException, ProtocolException, IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try {
+            HttpResponse<String> response = Unirest.get("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats")
+                    .header("x-rapidapi-host", hostCovid)
+                    .header("x-rapidapi-key", keyCovid)
+                    .asString();
+            System.out.println("Status: "+response.getStatusText());
+            System.out.println("Body: "+response.getBody());
+            return response.getBody();
+            //String url = "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats";
+            //return getHttpRequest(url);
+        } catch (UnirestException ex) {
+            Logger.getLogger(InMemoryCoronavirusPersistence.class.getName()).log(Level.SEVERE, null, ex);
+            return ">>>error";
+        }
+        
     }
 
     @Override
     public String getResultByCountry(String country) throws MalformedURLException, ProtocolException, IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    private String getHttpRequest(String GET_URL) throws MalformedURLException, ProtocolException, IOException {
-
-        String USER_AGENT = "Mozilla/5.0";
-
-        URL obj = new URL(GET_URL);
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        con.setRequestMethod("GET");
-        con.setRequestProperty("User-Agent", USER_AGENT);
-
-        //The following invocation perform the connection implicitly before getting the code
-        int responseCode = con.getResponseCode();
-        System.out.println("GET Response Code :: " + responseCode);
-
-        if (responseCode == HttpURLConnection.HTTP_OK) { // success
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
-
-            return response.toString();
-        } else {
-            return "GET request not worked";
+        try {
+            HttpResponse<String> response = Unirest.get("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country="+country)
+                    .header("x-rapidapi-host", hostCovid)
+                    .header("x-rapidapi-key", keyCovid)
+                    .asString();
+            System.out.println("Status: "+response.getStatusText());
+            System.out.println("Body: "+response.getBody());
+            return response.getBody();
+            //String url = "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats";
+            //return getHttpRequest(url);
+        } catch (UnirestException ex) {
+            Logger.getLogger(InMemoryCoronavirusPersistence.class.getName()).log(Level.SEVERE, null, ex);
+            return ">>>error, Country";
         }
     }
 
