@@ -18,6 +18,9 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/pricing.css" rel="stylesheet">
+        
+        <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+  
     </head>
 
     <body onload="getResult()">
@@ -44,36 +47,58 @@
                             </div>
                             <div id="oneCountry" class="tab-pane fade">
                                 <br>
-                                <form id="mainForm" style="align-items: center">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon1">Country Name</span>
-                                        </div>
-                                        <input id="inCountry" type="text" class="form-control" required aria-label="Country" aria-describedby="basic-addon1">
-                                    </div>
-                                    <button type="button" onclick="getResultByCountry('null')" class="btn btn-secondary">Search</button>                
-                                </form>
-                                <br>
                                 <div class="container-fluid">
                                     <!-- Control the column width, and how they should appear on different devices -->
-                                    <div class="panel panel-default" >
-                                        <div class="panel-heading"><h2 id="countryNameTitle"></h2></div>
-                                        <div class="panel-body">
-                                            <div class="row">
 
-                                                <div class="col-sm-6" style="padding: 10px">MAPA</div>
-                                                <div class="col-sm-6" style="padding: 10px;">
-                                                    <table id="tableInfoOneCountry" class="table table-condensed table-hover"></table>
+
+                                    <form id="mainForm" style="align-items: center">
+                                        <div class="row">
+
+                                            <div class="col-sm-5" style="padding: 5px">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Country Name</span>
+                                                    </div>
+                                                    <input style="height: 39px" id="inCountry" type="text" class="form-control" required aria-label="Country" aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1" style="padding: 5px;">
+                                                <button type="button" onclick="getResultByCountry('null')" class="btn btn-secondary">Search</button>
+                                            </div>
+
+                                        </div>
+
+
+                                    </form>
+                                    <br>
+                                    <div class="container-fluid">
+                                        <!-- Control the column width, and how they should appear on different devices -->
+                                        <div class="panel panel-default" >
+                                            <div class="panel-heading"><h2 id="countryNameTitle"></h2></div>
+                                            <div class="panel-body">
+                                                <div class="row">
+
+                                                    <div class="col-sm-6" style="padding: 10px">
+                                                        <div id="mapa"></div>
+                                                        <div id='map_canvas'></div>
+                                                        
+                                                    </div>
+                                                    <div class="col-sm-6" style="padding: 10px;">
+                                                        <table id="tableInfoOneCountry" class="table table-condensed table-hover"></table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
+
                                 </div>
-
-
-                            </div>
-                            <table id="tableOneCountry" class="table table-condensed table-hover"></table>
-
+                                <div class="panel panel-default" style="width: 96%;" >
+                                    <div class="panel-heading"><h3 >All Regions</h3></div>
+                                    <div class="panel-body">
+                                        <table id="tableOneCountry" class="table table-condensed table-hover"></table>
+                                    </div>
+                                </div>
 
 
                         </div>
