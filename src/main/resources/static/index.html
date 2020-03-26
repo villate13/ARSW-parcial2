@@ -20,7 +20,7 @@
         <link href="css/pricing.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body onload="loadPanel()">
 
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
             <h1 class="my-0 mr-md-auto font-weight-normal">COVID-19 CORONAVIRUS ARSW</h1>
@@ -32,50 +32,80 @@
                 <div class="panel panel-default" style="width: 85%;">
                     <div class="panel-heading"><h2>Coronavirus statistics</h2></div>
                     <div class="panel-body">
+                        <b>last Checked: </b><span class="label label-success" id="lastChecked"></span>
                         <ul class="nav nav-tabs">
                             <li class="active"><a data-toggle="tab" href="#allCountries">All the Countries</a></li>
                             <li><a data-toggle="tab" href="#oneCountry">A especific country</a></li>
                         </ul>
                         <div class="tab-content">
                             <div id="allCountries" class="tab-pane fade in active">
-
+                                <br>
                                 <table id="tableAllCountries" class="table table-condensed table-hover" style="text-align:center"></table>
                             </div>
                             <div id="oneCountry" class="tab-pane fade">
+                                <br>
+                                <form id="mainForm" style="align-items: center">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Country Name</span>
+                                        </div>
+                                        <input id="inCountry" type="text" class="form-control" required aria-label="Country" aria-describedby="basic-addon1">
+                                    </div>
+                                    <button type="button" onclick="getResultByCountry('null')" class="btn btn-secondary">Search</button>                
+                                </form>
+                                <br>
+                                <div class="container-fluid">
+                                    <!-- Control the column width, and how they should appear on different devices -->
+                                    <div class="panel panel-default" >
+                                        <div class="panel-heading"><h2 id="countryNameTitle"></h2></div>
+                                        <div class="panel-body">
+                                            <div class="row">
 
-                                <table id="tableOneCountry" class="table table-condensed table-hover"></table>
-                                
+                                                <div class="col-sm-6" style="padding: 10px">MAPA</div>
+                                                <div class="col-sm-6" style="padding: 10px;">
+                                                    <table id="tableInfoOneCountry" class="table table-condensed table-hover"></table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                             </div>
+                            <table id="tableOneCountry" class="table table-condensed table-hover"></table>
+
+
 
                         </div>
+
                     </div>
                 </div>
-            </center>
         </div>
+    </center>
+</div>
 
 
 
-        <!-- Agregar Pie de pagina -->
-        <footer style="text-align: center; position: absolute; bottom: 0; background-color: #555; color: white; padding: 15px; width: 100%;">
-            <div class="inner">
-                <p>@2020 | Todos los derechos reservados - by Juan Villate.</p>
-            </div>
-        </footer>
-        <!-- ---FIN---- -->
+<!-- Agregar Pie de pagina -->
+<footer style="text-align: center;  bottom: 0; background-color: #555; color: white; padding: 15px; width: 100%;">
+    <div class="inner">
+        <p>@2020 | Todos los derechos reservados - by Juan Villate.</p>
+    </div>
+</footer>
+<!-- ---FIN---- -->
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/holder.min.js"></script>
-        <script src="js/CoronavirusController.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/holder.min.js"></script>
+<script src="js/CoronavirusController.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg>
-    </body>
+<svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg>
+</body>
 </html>
