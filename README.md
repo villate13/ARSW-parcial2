@@ -5,19 +5,19 @@
 ## Documentacion arquitectura
 En este parcial utilizce un api el cual consumi una api externa, donde consultaba las estadisticas globales del CORONAVIRUS, se implemento mediante Spring, Maven y se almaceno en heroku, esta aplicacion permite consultar por pais mostrando sus respectivas regiones, donde mostraba el numero de infectados, numero de muertos y numero de curados que ha deja esta pandemia a nivel mundial. mostrando en pantalla de manera amigable hacia el usuario
 
-![getAll](https://github.com/villate13/ARSW-lab04-blueprint-2/blob/master/img/PART1/captureModifyInMemory.png)
+![getAll](https://github.com/villate13/ARSW-parcial2/blob/master/ArchitectureDiagrams/getAll.pngg)
 
-![get all API](https://github.com/villate13/ARSW-lab04-blueprint-2/blob/master/img/PART1/captureModifyInMemory.png)
+![get all API](https://github.com/villate13/ARSW-parcial2/blob/master/ArchitectureDiagrams/getAllApi.png)
 
 Si se quiere saber las estadisticas de un pais determinada, se puede ingresar el nombre en el campo que esta habilitado para ingresar texto, cuando esto ocurre se mostrar una tabla con la informacion de las estadisticas del pais y de cada region.
 
-![get One](https://github.com/villate13/ARSW-lab04-blueprint-2/blob/master/img/PART1/captureModifyInMemory.png)
+![get One](https://github.com/villate13/ARSW-parcial2/blob/master/ArchitectureDiagrams/getOne.png)
 
-![get One Api](https://github.com/villate13/ARSW-lab04-blueprint-2/blob/master/img/PART1/captureModifyInMemory.png)
+![get One Api](https://github.com/villate13/ARSW-parcial2/blob/master/ArchitectureDiagrams/getOneApi.png)
 
 La arquitectura de paquetes se muestra correcta
 
-![estructura](https://github.com/villate13/ARSW-lab04-blueprint-2/blob/master/img/PART1/captureModifyInMemory.png)
+![estructura](https://github.com/villate13/ARSW-parcial2/blob/master/ArchitectureDiagrams/estructura.png)
 
 
 
