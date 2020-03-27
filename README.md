@@ -2,6 +2,11 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://villate-parcial2.herokuapp.com/)
 
+## Correr localmente
+Para correr el proyecto localmente, primero hay que asegurarse de que el proyecto esta corriendo en netbeans, o en consola en la carpeta raiz del proyecto con el siguiente comando:
+
+$ mvn spring-boot:run
+
 ## Documentacion arquitectura
 En este parcial utilizce un api el cual consumi una api externa, donde consultaba las estadisticas globales del CORONAVIRUS, se implemento mediante Spring, Maven y se almaceno en heroku, esta aplicacion permite consultar por pais mostrando sus respectivas regiones, donde mostraba el numero de infectados, numero de muertos y numero de curados que ha deja esta pandemia a nivel mundial. mostrando en pantalla de manera amigable hacia el usuario
 
