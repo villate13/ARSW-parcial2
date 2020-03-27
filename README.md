@@ -5,7 +5,7 @@
 ## Documentacion arquitectura
 En este parcial utilizce un api el cual consumi una api externa, donde consultaba las estadisticas globales del CORONAVIRUS, se implemento mediante Spring, Maven y se almaceno en heroku, esta aplicacion permite consultar por pais mostrando sus respectivas regiones, donde mostraba el numero de infectados, numero de muertos y numero de curados que ha deja esta pandemia a nivel mundial. mostrando en pantalla de manera amigable hacia el usuario
 
-![getAll](https://github.com/villate13/ARSW-parcial2/blob/master/ArchitectureDiagrams/getAll.pngg)
+![getAll](https://github.com/villate13/ARSW-parcial2/blob/master/ArchitectureDiagrams/getAll.png)
 
 ![get all API](https://github.com/villate13/ARSW-parcial2/blob/master/ArchitectureDiagrams/getAllApi.png)
 
